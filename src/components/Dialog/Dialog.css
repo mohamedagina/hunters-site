@@ -1,0 +1,55 @@
+.dialog {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: min(450px, 75vw);
+  transform: translate(-100%, -75%);
+  max-height: 90vh;
+  padding: 1rem;
+  border: 0.5rem solid #777;
+  border-radius: 1rem;
+  color: #333;
+  background-color: #fff;
+}
+
+.dialog .dialog-menu {
+  list-style-type: none;
+}
+
+.dialog::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  right: -0.5rem;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 8px 24px 8px;
+  border-color: transparent transparent #777 transparent;
+  transform: translate(100%, 50%) rotate(110deg);
+}
+
+.dialog .dialog-menu button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.dialog .dialog-menu button:hover {
+  color: cyan;
+  cursor: none;
+}
+
+.dialog .dialog-menu button:hover::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  right: 0;
+  top: 0;
+  transform: translate(100%, 0);
+  background: url('../../assets/cursor.png') no-repeat center/contain;
+}

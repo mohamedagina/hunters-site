@@ -1,4 +1,6 @@
-* {
+*,
+::after,
+::before {
   box-sizing: border-box;
 }
 
@@ -23,4 +25,14 @@ h6,
 button {
   padding: 0;
   margin: 0;
+}
+
+input,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+body {
+  font-family: 'Sedgwick Ave Display', cursive;
 }

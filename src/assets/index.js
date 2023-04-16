@@ -5,3 +5,4 @@ export { default as leftDoor } from './left-door.webp';
 export { default as rightDoor } from './right-door.webp';
 export { default as wall } from './wall.webp';
 export { default as appMain } from './main.webp';
+export { default as mainCursor } from './cursor.png';
