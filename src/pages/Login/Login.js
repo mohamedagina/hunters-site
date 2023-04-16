@@ -26,6 +26,8 @@ const Login = () => {
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             required
+            pattern="[a-zA-Zء-ي]{3,}"
+            title="Must have at least 3 letters."
             placeholder="Enter your name..."
             value={name}
             onChange={e => setName(e.target.value)}
@@ -34,7 +36,7 @@ const Login = () => {
             required
             inputMode="numeric"
             pattern="[0-9]{12}"
-            title="Valid hunter's ID must have 12 digits"
+            title="Valid hunter's ID must have 12 digits."
             placeholder="Enter your ID..."
             value={id}
             onChange={e => setID(e.target.value)}
