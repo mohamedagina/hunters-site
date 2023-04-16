@@ -30,6 +30,9 @@ const Login = () => {
           />
           <input
             required
+            inputMode="numeric"
+            pattern="[0-9]{12}"
+            title="Valid hunter's ID must have 12 numbers"
             placeholder="Enter your ID..."
             value={id}
             onChange={e => setID(e.target.value)}
