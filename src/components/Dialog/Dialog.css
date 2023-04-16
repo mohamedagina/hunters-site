@@ -2,8 +2,8 @@
   position: absolute;
   left: 0;
   top: 50%;
-  width: min(450px, 75vw);
-  transform: translate(-100%, -75%);
+  width: min(450px, 65vw);
+  transform: translate(-100%, -60%);
   max-height: 90vh;
   padding: 1rem;
   border: 0.5rem solid #777;
