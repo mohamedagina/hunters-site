@@ -18,10 +18,10 @@ const Login = () => {
     <div className="login-page">
       <div className="login-section">
         <header className="login-header">
-          <img src={appLogo} alt="Hunters Association" />
+          <img src={appLogo} alt="Hunters Association" draggable="false" />
         </header>
         <div className="login-hero">
-          <img src={loginImg} alt="Hunters bar" />
+          <img src={loginImg} alt="Hunters bar" draggable="false" />
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
           <input

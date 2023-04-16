@@ -1,8 +1,11 @@
 .door-animation {
+  position: fixed;
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background: url('../../assets/wall.webp') #000 center/100% 100%;
 }
 
