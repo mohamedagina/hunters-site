@@ -1,0 +1,34 @@
+.door-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../../assets/wall.webp') #000 center/100% 100%;
+}
+
+.door {
+  width: 24%;
+  transition: transform var(--duration) ease-in-out;
+}
+
+.door.left {
+  transform-origin: left;
+}
+
+.door.right {
+  transform-origin: right;
+  position: relative;
+}
+
+.door-animation.loaded {
+  opacity: 0;
+  transition: opacity var(--fade-duration) var(--duration) ease-in-out;
+}
+
+.door-animation.loaded .left {
+  transform: rotateY(60deg);
+}
+
+.door-animation.loaded .right {
+  transform: rotateY(-60deg);
+}

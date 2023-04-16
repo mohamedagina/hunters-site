@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { appLogo, loginImg } from '../../assets';
 import './Login.css';
@@ -6,10 +7,11 @@ import './Login.css';
 const Login = () => {
   const [name, setName] = useState('');
   const [id, setID] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert(`Welcome back, ${name}#${id}`);
+    navigate('/tavern', { state: { name, id } });
   };
 
   return (
