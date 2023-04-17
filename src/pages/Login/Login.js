@@ -11,7 +11,15 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    navigate('/tavern', { state: { name, id } });
+    navigate('/tavern', { state: { name: name.trim(), id } });
+  };
+
+  const handleNameChange = e => {
+    const newName = e.target.value.replace(
+      /[^a-zA-Zء-ي]*([a-zA-Zء-ي]*\s?)[^a-zA-Zء-ي]*/g,
+      '$1'
+    );
+    setName(newName);
   };
 
   return (
@@ -26,11 +34,11 @@ const Login = () => {
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             required
-            pattern="[a-zA-Zء-ي]{3,}"
-            title="Must have at least 3 letters."
+            pattern="([a-zA-Zء-ي]{3,}\s?)+"
+            title="Each name must have at least 3 letters."
             placeholder="Enter your name..."
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={handleNameChange}
           />
           <input
             required
