@@ -8,10 +8,13 @@ const Dialog = ({ userInfo: { name, id } }) => {
       </header>
       <ul className="dialog-menu">
         <li>
-          <button>Two stars hunter</button>
+          <button>Basic Hunter License</button>
         </li>
         <li>
-          <button>three stars hunter</button>
+          <button>Two stars Hunter License</button>
+        </li>
+        <li>
+          <button disabled>Three stars Hunter License</button>
         </li>
       </ul>
     </div>

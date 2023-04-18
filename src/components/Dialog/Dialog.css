@@ -38,8 +38,9 @@
   padding: 0.5rem;
 }
 
-.dialog .dialog-menu button:hover {
+.dialog .dialog-menu button:not(:disabled):hover {
   color: cyan;
+  text-decoration: underline;
   cursor: none;
 }
 

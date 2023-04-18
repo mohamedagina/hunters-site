@@ -75,7 +75,7 @@ const Tavern = () => {
           <div className="tool-tip">
             Barista
             <ul>
-              <li>Obtain your license</li>
+              <li>How can I help you?</li>
             </ul>
           </div>
           {isDialogOpen && <Dialog userInfo={userInfo} />}
