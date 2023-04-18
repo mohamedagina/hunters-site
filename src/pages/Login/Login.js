@@ -36,7 +36,7 @@ const Login = () => {
             required
             pattern="([a-zA-Zء-ي]{3,}\s?)+"
             title="Each name must have at least 3 letters."
-            placeholder="Enter your name..."
+            placeholder="Enter your name ..."
             value={name}
             onChange={handleNameChange}
           />
@@ -44,8 +44,9 @@ const Login = () => {
             required
             inputMode="numeric"
             pattern="[0-9]{12}"
+            maxlength="12"
             title="Valid hunter's ID must have 12 digits."
-            placeholder="Enter your ID..."
+            placeholder="Enter your card no. ..."
             value={id}
             onChange={e => setID(e.target.value)}
           />
