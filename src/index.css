@@ -33,6 +33,89 @@ button {
   color: inherit;
 }
 
+button {
+  position: relative;
+  padding: 0.5rem;
+  text-align: start;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: none;
+}
+
+button:not(:disabled):hover {
+  color: cyan;
+  text-decoration: underline;
+}
+
+button:hover::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  right: 0;
+  top: 0;
+  transform: translate(100%, 0);
+  background: url('./assets/cursor.png') no-repeat center/contain;
+}
+
+@font-face {
+  font-family: 'Fareast';
+  src: url('../public/font/fareast.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kredit';
+  src: url('../public/font/kredit_front.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Kredit', cursive;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.license-to-download {
+  position: fixed;
+  z-index: -10;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.license-to-download .license {
+  position: relative;
+  width: 1080px;
+}
+
+.license-to-download .license img {
+  width: 100%;
+}
+
+.license-to-download .license .hunter-name {
+  font-family: 'Fareast', cursive;
+  position: absolute;
+  left: 5%;
+  top: 64.5%;
+  width: 410px;
+  font-size: 2rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hunter-id {
+  position: absolute;
+  right: 3%;
+  top: 4%;
+  font-size: 2rem;
+  transform-origin: bottom right;
+  transform: rotate(-90deg);
+  font-weight: 600;
 }

@@ -6,3 +6,5 @@ export { default as rightDoor } from './right-door.webp';
 export { default as wall } from './wall.webp';
 export { default as appMain } from './main.webp';
 export { default as mainCursor } from './cursor.png';
+export { default as basicLicense } from './basic.png';
+export { default as twoStarLicense } from './two_star.png';

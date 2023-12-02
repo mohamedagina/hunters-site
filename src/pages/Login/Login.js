@@ -22,6 +22,11 @@ const Login = () => {
     setName(newName);
   };
 
+  const handleIDChange = e => {
+    const newID = e.target.value.replace(/^0/, '').replace(/[^0-9]*/g, '');
+    setID(newID);
+  };
+
   return (
     <div className="login-page">
       <div className="login-section">
@@ -43,12 +48,12 @@ const Login = () => {
           <input
             required
             inputMode="numeric"
-            pattern="[0-9]{12}"
-            maxlength="12"
-            title="Valid hunter's ID must have 12 digits."
+            pattern="[0-9]{14}"
+            maxLength="14"
+            title="Valid hunter's ID must have 14 digits."
             placeholder="Enter your card no. ..."
             value={id}
-            onChange={e => setID(e.target.value)}
+            onChange={handleIDChange}
           />
           <button type="submit">Login</button>
         </form>
