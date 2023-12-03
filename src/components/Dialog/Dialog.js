@@ -69,7 +69,10 @@ const Dialog = ({ userInfo: { name, id } }) => {
           Welcome back {name}#{id}.
         </header>
         <button onClick={() => setShowMenu(!showMenu)}>
-          {showMenu ? 'Back To The Previous Menu' : 'Get Your License'}
+          <div>
+            {' '}
+            {showMenu ? 'Back To The Previous Menu' : 'Get Your License'}
+          </div>
         </button>
 
         <ul className={`dialog-menu ${showMenu ? 'show' : ''}`}>
@@ -150,7 +153,7 @@ const LicenseGenerator = ({
       {...restProps}
     >
       {isLoading && <LoadingIcon />}
-      {children}
+      <div>{children}</div>
     </button>
   );
 };

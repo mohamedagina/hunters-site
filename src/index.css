@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Fareast';
+  src: url('../public/font/fareast.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kredit';
+  src: url('../public/font/kredit_front.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 ::after,
 ::before {
@@ -35,6 +49,8 @@ button {
 
 button {
   position: relative;
+  display: flex;
+  justify-content: flex-start;
   padding: 0.5rem;
   text-align: start;
   background-color: transparent;
@@ -48,30 +64,20 @@ button:not(:disabled):hover {
   text-decoration: underline;
 }
 
-button:hover::after {
+button > div {
+  position: relative;
+}
+
+button:hover > div::after {
   content: '';
   position: absolute;
   display: block;
   width: 2rem;
   height: 2rem;
-  right: 0;
-  top: 0;
+  inset-inline-end: -0.5rem;
+  inset-block-start: -0.5rem;
   transform: translate(100%, 0);
   background: url('./assets/cursor.png') no-repeat center/contain;
-}
-
-@font-face {
-  font-family: 'Fareast';
-  src: url('../public/font/fareast.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Kredit';
-  src: url('../public/font/kredit_front.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
 }
 
 body {
