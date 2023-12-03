@@ -52,3 +52,22 @@
 .dialog .dialog-menu button {
   width: 100%;
 }
+
+.license-generator {
+  position: relative;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.license-generator > svg {
+  position: absolute;
+  inset-inline-start: -1.25rem;
+  top: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 2s linear infinite;
+}

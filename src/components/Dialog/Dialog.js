@@ -3,17 +3,28 @@ import { toPng } from 'html-to-image';
 import './Dialog.css';
 
 import { basicLicense, twoStarLicense } from '../../assets';
+import { ReactComponent as LoadingIcon } from '../../assets/loading.svg';
+
+const licenseTypes = {
+  BASIC: 'BASIC',
+  TWO_STAR: 'TWO_STAR'
+};
 
 const Dialog = ({ userInfo: { name, id } }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [licenseBeingDownloaded, setLicenseBeingDownloaded] = useState(null);
 
   const basicLicenseEl = useRef(null);
   const twoStarLicenseEl = useRef(null);
 
-  const handleDownloadLicense = ref => {
-    if (ref.current === null) {
+  const handleDownloadLicense = type => {
+    const ref = type === licenseTypes.BASIC ? basicLicenseEl : twoStarLicenseEl;
+
+    if (ref.current === null || licenseBeingDownloaded) {
       return;
     }
+
+    setLicenseBeingDownloaded(type);
 
     toPng(ref.current, { cacheBust: true })
       .then(dataUrl => {
@@ -24,6 +35,9 @@ const Dialog = ({ userInfo: { name, id } }) => {
       })
       .catch(err => {
         console.log(err);
+      })
+      .finally(() => {
+        setLicenseBeingDownloaded(null);
       });
   };
 
@@ -60,17 +74,25 @@ const Dialog = ({ userInfo: { name, id } }) => {
 
         <ul className={`dialog-menu ${showMenu ? 'show' : ''}`}>
           <li>
-            <button onClick={() => handleDownloadLicense(basicLicenseEl)}>
+            <LicenseGenerator
+              isLoading={licenseBeingDownloaded === licenseTypes.BASIC}
+              onClick={() => handleDownloadLicense(licenseTypes.BASIC)}
+            >
               Basic Hunter License
-            </button>
+            </LicenseGenerator>
           </li>
           <li>
-            <button onClick={() => handleDownloadLicense(twoStarLicenseEl)}>
+            <LicenseGenerator
+              isLoading={licenseBeingDownloaded === licenseTypes.TWO_STAR}
+              onClick={() => handleDownloadLicense(licenseTypes.TWO_STAR)}
+            >
               Two stars Hunter License
-            </button>
+            </LicenseGenerator>
           </li>
           <li>
-            <button disabled>Three stars Hunter License</button>
+            <LicenseGenerator disabled>
+              Three stars Hunter License
+            </LicenseGenerator>
           </li>
         </ul>
       </div>
@@ -111,6 +133,25 @@ const Dialog = ({ userInfo: { name, id } }) => {
         </div>
       </div>
     </>
+  );
+};
+
+const LicenseGenerator = ({
+  className,
+  children,
+  onClick,
+  isLoading,
+  ...restProps
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`license-generator ${className ?? ''}`}
+      {...restProps}
+    >
+      {isLoading && <LoadingIcon />}
+      {children}
+    </button>
   );
 };
 
